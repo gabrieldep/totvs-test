@@ -1,0 +1,15 @@
+/home/gabriel/repos/totvs_exam/src/Core.Application/bin/Debug/net8.0/Core.Application.deps.json
+/home/gabriel/repos/totvs_exam/src/Core.Application/bin/Debug/net8.0/Core.Application.dll
+/home/gabriel/repos/totvs_exam/src/Core.Application/bin/Debug/net8.0/Core.Application.pdb
+/home/gabriel/repos/totvs_exam/src/Core.Application/bin/Debug/net8.0/Core.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Core.Application/bin/Debug/net8.0/Core.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/Core.Application.csproj.AssemblyReference.cache
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/Core.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/Core.Application.AssemblyInfoInputs.cache
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/Core.Application.AssemblyInfo.cs
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/Core.Application.csproj.CoreCompileInputs.cache
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/Core.App.01B2A2D7.Up2Date
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/Core.Application.dll
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/refint/Core.Application.dll
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/Core.Application.pdb
+/home/gabriel/repos/totvs_exam/src/Core.Application/obj/Debug/net8.0/ref/Core.Application.dll

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "E4Qc242IOQUh+DJEtq7z6LTS+HE08Kzro83IDajf+zR5YejEgWdO2azwacIqPO7oajBCtw2IZZBzI4Qn2OS1ig==",
+  "success": true,
+  "projectFilePath": "/home/gabriel/repos/totvs_exam/src/Core.Application/Core.Application.csproj",
+  "expectedPackageFiles": [
+    "/home/gabriel/.nuget/packages/fluentvalidation/11.9.1/fluentvalidation.11.9.1.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/mediatr/12.2.0/mediatr.12.2.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

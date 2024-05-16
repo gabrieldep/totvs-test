@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.Sqlite" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bonds.RestApi\Bonds.RestApi.csproj" />
+    <ProjectReference Include="..\CrossCutting.DependencyInjection\CrossCutting.DependencyInjection.csproj" />
+    <ProjectReference Include="..\Investiments.RestApi\Investiments.RestApi.csproj" />
+    <ProjectReference Include="..\Stocks.RestApi\Stocks.RestApi.csproj" />
+    <ProjectReference Include="..\Wallets.RestApi\Wallets.RestApi.csproj" />
+  </ItemGroup>
+
+</Project>

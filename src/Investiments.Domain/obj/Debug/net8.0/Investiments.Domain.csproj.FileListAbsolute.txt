@@ -1,0 +1,17 @@
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/bin/Debug/net8.0/Investiments.Domain.deps.json
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/bin/Debug/net8.0/Investiments.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/bin/Debug/net8.0/Investiments.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/bin/Debug/net8.0/Core.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/bin/Debug/net8.0/Wallets.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/bin/Debug/net8.0/Core.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/bin/Debug/net8.0/Wallets.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/Investiments.Domain.csproj.AssemblyReference.cache
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/Investiments.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/Investiments.Domain.AssemblyInfoInputs.cache
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/Investiments.Domain.AssemblyInfo.cs
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/Investiments.Domain.csproj.CoreCompileInputs.cache
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/Investim.33D39E29.Up2Date
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/Investiments.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/refint/Investiments.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/Investiments.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Investiments.Domain/obj/Debug/net8.0/ref/Investiments.Domain.dll

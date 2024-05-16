@@ -1,0 +1,15 @@
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/bin/Debug/net8.0/Wallets.Domain.deps.json
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/bin/Debug/net8.0/Wallets.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/bin/Debug/net8.0/Wallets.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/bin/Debug/net8.0/Core.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/bin/Debug/net8.0/Core.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/Wallets.Domain.csproj.AssemblyReference.cache
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/Wallets.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/Wallets.Domain.AssemblyInfoInputs.cache
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/Wallets.Domain.AssemblyInfo.cs
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/Wallets.Domain.csproj.CoreCompileInputs.cache
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/Wallets..B6C2A05C.Up2Date
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/Wallets.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/refint/Wallets.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/Wallets.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Wallets.Domain/obj/Debug/net8.0/ref/Wallets.Domain.dll

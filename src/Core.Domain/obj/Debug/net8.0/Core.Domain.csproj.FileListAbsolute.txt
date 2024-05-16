@@ -1,0 +1,11 @@
+/home/gabriel/repos/totvs_exam/src/Core.Domain/bin/Debug/net8.0/Core.Domain.deps.json
+/home/gabriel/repos/totvs_exam/src/Core.Domain/bin/Debug/net8.0/Core.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Core.Domain/bin/Debug/net8.0/Core.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Core.Domain/obj/Debug/net8.0/Core.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabriel/repos/totvs_exam/src/Core.Domain/obj/Debug/net8.0/Core.Domain.AssemblyInfoInputs.cache
+/home/gabriel/repos/totvs_exam/src/Core.Domain/obj/Debug/net8.0/Core.Domain.AssemblyInfo.cs
+/home/gabriel/repos/totvs_exam/src/Core.Domain/obj/Debug/net8.0/Core.Domain.csproj.CoreCompileInputs.cache
+/home/gabriel/repos/totvs_exam/src/Core.Domain/obj/Debug/net8.0/Core.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Core.Domain/obj/Debug/net8.0/refint/Core.Domain.dll
+/home/gabriel/repos/totvs_exam/src/Core.Domain/obj/Debug/net8.0/Core.Domain.pdb
+/home/gabriel/repos/totvs_exam/src/Core.Domain/obj/Debug/net8.0/ref/Core.Domain.dll

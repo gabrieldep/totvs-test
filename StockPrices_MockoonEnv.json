@@ -1,0 +1,99 @@
+{
+  "uuid": "ef292140-f4ad-49e2-a5fd-25f4c12e3d05",
+  "lastMigration": 32,
+  "name": "StockPrices",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "09ddb235-a45f-45f7-b30d-64eb6bd9cc36",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/stock-position/today",
+      "responses": [
+        {
+          "uuid": "6f53fbe3-de09-45f3-ba30-307dc4e8dffc",
+          "body": "[\n  {\n    \"code\": \"PETR4\",\n    \"value\": \"38.39\"\n  },\n  {\n    \"code\": \"ITUB4\",\n    \"value\": \"33,38\"\n  },\n  {\n    \"code\": \"BBAS3\",\n    \"value\": \"27,56\"\n  },\n  {\n    \"code\": \"BCSA34\",\n    \"value\": \"26,46\"\n  },\n  {\n    \"code\": \"BBDC4\",\n    \"value\": \"13,31\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "48aced9b-048b-45ca-abd0-0279d385418f",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 503,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": "RANDOM"
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "09ddb235-a45f-45f7-b30d-64eb6bd9cc36"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
