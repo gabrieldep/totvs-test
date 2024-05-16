@@ -1,4 +1,4 @@
-namespace Wallets.RestApi.DTOs;
+namespace Wallets.Application.DTOs;
 
 public class StockPositionResponseDTO
 {

@@ -17,6 +17,6 @@ internal static class DataModule
             .AddScoped<IStockRepository, StockRepository>()
             .AddScoped<IBondRepository, BondRepository>()
             .AddScoped<IWalletRepository, WalletRepository>()
-            .AddTransient<IValidator<GetWalletStocksPosition>, GetWalletStocksPositionValidator>();
+            .AddTransient<IValidator<WalletStocksPosition>, GetWalletStocksPositionValidator>();
     }
 }

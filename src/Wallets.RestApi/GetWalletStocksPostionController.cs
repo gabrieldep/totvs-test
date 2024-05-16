@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Wallets.Application;
+using Wallets.Application.Validators;
 
 namespace Wallets.RestApi;
 
@@ -12,9 +13,9 @@ namespace Wallets.RestApi;
 public class GetWalletStocksPostionController : ControllerBase
 {
     private readonly ISender _sender;
-    private readonly IValidator<GetWalletStocksPosition> _validator;
+    private readonly IValidator<WalletStocksPosition> _validator;
 
-    public GetWalletStocksPostionController(ISender sender, IValidator<GetWalletStocksPosition> validator)
+    public GetWalletStocksPostionController(ISender sender, IValidator<WalletStocksPosition> validator)
     {
         _sender = sender;
         _validator = validator;
@@ -28,12 +29,13 @@ public class GetWalletStocksPostionController : ControllerBase
     [SaveChanges]
     public async Task<IActionResult> GetAsync(Guid walletId, CancellationToken cancellationToken)
     {
-        var command = new GetWalletStocksPosition { WalletId = walletId };
+        var walletStocksPosition = new WalletStocksPosition { WalletId = walletId };
 
-        var validationResult = await _validator.ValidateAsync(command, cancellationToken);
+        var validationResult = await _validator.ValidateAsync(walletStocksPosition, cancellationToken);
         if (!validationResult.IsValid)
             return BadRequest(validationResult.Errors);
 
+        var command = new GetWalletStocksPosition() { WalletId = walletId };
         var stockPosition = await _sender.Send(command, cancellationToken);
 
         return Ok(stockPosition);

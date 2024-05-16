@@ -3,7 +3,7 @@ using Wallets.Domain;
 
 namespace Wallets.Application.Validators;
 
-public class GetWalletStocksPositionValidator : AbstractValidator<GetWalletStocksPosition>
+public class GetWalletStocksPositionValidator : AbstractValidator<WalletStocksPosition>
 {
     private readonly IWalletRepository _wallets;
     public GetWalletStocksPositionValidator(IWalletRepository wallets)
