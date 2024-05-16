@@ -17,6 +17,6 @@ internal static class DataModule
         services
             .AddScoped<IStockRepository, StockRepository>()
             .AddScoped<IBondRepository, BondRepository>()
-            ;
+            .AddScoped<IWalletRepository, WalletRepository>();
     }
 }
