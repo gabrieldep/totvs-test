@@ -4,6 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- ASP.NET -->
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageVersion Include="AspNetCore.HealthChecks.Sqlite" Version="8.0.1" />
     <!-- Entity Framework -->
