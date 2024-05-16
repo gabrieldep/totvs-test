@@ -14,4 +14,9 @@ public class WalletRepository(DbContext db) : IWalletRepository
     {
         return db.Set<Wallet>().AddAsync(wallet, cancellationToken).AsTask();
     }
+
+    public async Task<Wallet> GetAsync(Guid walletId, CancellationToken cancellationToken)
+    {
+        return await db.Set<Wallet>().FindAsync(walletId, cancellationToken);
+    }
 }
