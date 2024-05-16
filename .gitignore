@@ -46,3 +46,7 @@ packages/
 **/bin/
 **/obj/
 
+# SQLite database files and their auxiliar files
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
