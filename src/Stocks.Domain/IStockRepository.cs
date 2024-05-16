@@ -8,4 +8,5 @@ namespace Stocks.Domain;
 public interface IStockRepository
 {
     Task InsertAsync(Stock stock, CancellationToken cancellationToken);
+    Task<IQueryable<Stock>> GetStocks(Guid walletId, CancellationToken cancellationToken);
 }
