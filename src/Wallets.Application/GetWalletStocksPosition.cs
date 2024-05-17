@@ -2,11 +2,6 @@ using MediatR;
 using Stocks.Application.Services;
 using Stocks.Domain;
 using Wallets.Application.DTOs;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System;
 
 namespace Wallets.Application
 {
@@ -29,9 +24,7 @@ namespace Wallets.Application
         public async Task<IEnumerable<StockPositionResponseDTO>> Handle(GetWalletStocksPosition request, CancellationToken cancellationToken)
         {
             var stocksPositionQueryable = await _stocksRepository.GetStocks(request.WalletId, cancellationToken);
-            
             var stocksPositionDto = GetStockAndAmount(stocksPositionQueryable).ToArray();
-
             var stocksValue = await _stockPositionService.GetStockPositionsAsync();
 
             foreach (var t in stocksPositionDto)

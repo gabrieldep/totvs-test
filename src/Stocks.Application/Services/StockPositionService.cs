@@ -1,9 +1,5 @@
-using System;
-using System.Net.Http;
 using System.Text.Json;
-
 using Microsoft.Extensions.Caching.Distributed;
-
 using Stocks.Application.DTOs;
 
 namespace Stocks.Application.Services;
