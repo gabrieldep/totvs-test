@@ -12,7 +12,7 @@ public class GetWalletStocksPositionValidator : AbstractValidator<WalletStocksPo
         
         RuleFor(x => x.WalletId)
             .NotEmpty().NotNull().WithMessage("Wallet ID is required.")
-            .MustAsync(BeAValidGuidAsync).WithMessage("Invalid Wallet ID format.");
+            .MustAsync(BeAValidGuidAsync).WithMessage("It wasn't possible to find the wallet.");
     }
 
     private async Task<bool> BeAValidGuidAsync(Guid guid, CancellationToken cancellationToken)

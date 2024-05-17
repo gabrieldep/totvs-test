@@ -10,16 +10,8 @@ namespace Wallets.RestApi
 {
     [ApiController]
     [Route("api/wallet/{walletId}/stocks-position")]
-    public class WalletStocksPositionController : ControllerBase
+    public class WalletStocksPositionController(ISender sender, IValidator<WalletStocksPosition> validator) : ControllerBase
     {
-        private readonly ISender _sender;
-        private readonly IValidator<WalletStocksPosition> _validator;
-
-        public WalletStocksPositionController(ISender sender, IValidator<WalletStocksPosition> validator)
-        {
-            _sender = sender;
-            _validator = validator;
-        }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -31,12 +23,12 @@ namespace Wallets.RestApi
         {
             var walletStocksPosition = new WalletStocksPosition { WalletId = walletId };
 
-            var validationResult = await _validator.ValidateAsync(walletStocksPosition, cancellationToken);
+            var validationResult = await validator.ValidateAsync(walletStocksPosition, cancellationToken);
             if (!validationResult.IsValid)
                 return BadRequest(validationResult.Errors);
 
             var command = new GetWalletStocksPosition() { WalletId = walletId };
-            var stockPosition = await _sender.Send(command, cancellationToken);
+            var stockPosition = await sender.Send(command, cancellationToken);
 
             return Ok(stockPosition);
         }
