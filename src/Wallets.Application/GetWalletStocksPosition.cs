@@ -28,12 +28,20 @@ namespace Wallets.Application
 
         public async Task<IEnumerable<StockPositionResponseDTO>> Handle(GetWalletStocksPosition request, CancellationToken cancellationToken)
         {
-            var stocksPosition = await _stocksRepository.GetStocks(request.WalletId, cancellationToken);
-            var stockPositionDto = GetStockAndAmount(stocksPosition);
+            var stocksPositionQueryable = await _stocksRepository.GetStocks(request.WalletId, cancellationToken);
+            
+            var stocksPositionDto = GetStockAndAmount(stocksPositionQueryable).ToArray();
 
-            var externalData = await _stockPositionService.GetStockPositionsAsync();
+            var stocksValue = await _stockPositionService.GetStockPositionsAsync();
 
-            return stockPositionDto;
+            foreach (var t in stocksPositionDto)
+            {
+                var stockValue = stocksValue
+                    .FirstOrDefault(sv => sv.Code == t.Code);
+                t.ValuePerQuota = ConvertToDecimal(stockValue?.Value);
+            }
+            
+            return stocksPositionDto;
         }
 
         private static IEnumerable<StockPositionResponseDTO> GetStockAndAmount(IEnumerable<Stock> stocks)
@@ -43,5 +51,13 @@ namespace Wallets.Application
                     Code = g.Key,
                     Amount = g.Sum(s => s.Amount),
                 });
+        
+        private static decimal ConvertToDecimal(string? value)
+        {
+            value = value?.Replace(',', '.');
+            if (decimal.TryParse(value, out decimal result))
+                return result;
+            throw new ArgumentException($"Failed to convert '{value}' to decimal.");
+        }
     }
 }

@@ -1,5 +1,4 @@
 using System.Text.Json;
-
 using Stocks.Application.DTOs;
 
 namespace Stocks.Application.Services;
@@ -14,7 +13,7 @@ public class StockPositionService
         _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
     }
 
-    public async Task<List<StockPositionDTO>> GetStockPositionsAsync()
+    public async Task<StockPositionDTO[]> GetStockPositionsAsync()
     {
         try
         {
@@ -22,9 +21,9 @@ public class StockPositionService
             response.EnsureSuccessStatusCode();
                 
             var json = await response.Content.ReadAsStringAsync();
-            var apiResponse = JsonSerializer.Deserialize<ApiResponse>(json);
+            var apiResponse = JsonSerializer.Deserialize<StockPositionDTO[]>(json);
 
-            return apiResponse?.Positions;
+            return apiResponse;
         }
         catch (Exception ex)
         {

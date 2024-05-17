@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Stocks.Domain\Stocks.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\..\.nuget\packages\castle.core\5.1.1\lib\net6.0\Castle.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
