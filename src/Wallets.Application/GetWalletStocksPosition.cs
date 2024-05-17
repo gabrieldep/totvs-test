@@ -18,9 +18,9 @@ namespace Wallets.Application
     public class GetWalletStocksPositionHandler : IRequestHandler<GetWalletStocksPosition, IEnumerable<StockPositionResponseDTO>>
     {
         private readonly IStockRepository _stocksRepository;
-        private readonly StockPositionService _stockPositionService;
+        private readonly IStockPositionService _stockPositionService;
 
-        public GetWalletStocksPositionHandler(IStockRepository stocksRepository, StockPositionService stockPositionService)
+        public GetWalletStocksPositionHandler(IStockRepository stocksRepository, IStockPositionService stockPositionService)
         {
             _stocksRepository = stocksRepository ?? throw new ArgumentNullException(nameof(stocksRepository));
             _stockPositionService = stockPositionService ?? throw new ArgumentNullException(nameof(stockPositionService));

@@ -11,6 +11,7 @@ internal static class WalletModule
         services.AddMediatR(config =>
         {
             config.RegisterServicesFromAssembly(typeof(CreateWallet).Assembly);
+            config.RegisterServicesFromAssembly(typeof(GetWalletStocksPosition).Assembly);
         });
     }
 }
