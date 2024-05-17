@@ -13,5 +13,6 @@ public static class RootModule
         services.AddEntityFrameworkModule(configuration);
         services.AddValidatorModule();
         services.AddHttpClientModule(configuration);
+        services.AddCacheModule();
     }
 }

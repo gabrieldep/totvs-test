@@ -15,6 +15,9 @@
     <Reference Include="Castle.Core">
       <HintPath>..\..\..\..\.nuget\packages\castle.core\5.1.1\lib\net6.0\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions">
+      <HintPath>..\..\..\..\.nuget\packages\microsoft.extensions.caching.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
