@@ -9,7 +9,9 @@ public class StockPositionService : IStockPositionService
 {
     private readonly HttpClient _httpClient;
     private static readonly string _apiRoute = "api/stock-position/today";
-        
+    private const int MaxRetries = 3;
+    private const int RetryDelaySeconds = 5;
+    
     public StockPositionService(HttpClient httpClient)
     {
         _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
@@ -17,20 +19,26 @@ public class StockPositionService : IStockPositionService
         
     public async Task<StockPositionDTO[]> GetStockPositionsAsync()
     {
-        try
-        {
-            var response = await _httpClient.GetAsync(_apiRoute);
-            response.EnsureSuccessStatusCode();
-                    
-            var json = await response.Content.ReadAsStringAsync();
-            var apiResponse = JsonSerializer.Deserialize<StockPositionDTO[]>(json);
+        for (int attempt = 0; attempt < MaxRetries; attempt++)
+            try
+            {
+                var response = await _httpClient.GetAsync(_apiRoute);
+                response.EnsureSuccessStatusCode();
 
-            return apiResponse;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Erro ao obter os dados da API: {ex.Message}");
-            throw;
-        }
+                var json = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonSerializer.Deserialize<StockPositionDTO[]>(json);
+
+                return apiResponse;
+            }
+            catch (Exception ex)
+            {
+                if (attempt == MaxRetries - 1)
+                    throw;
+
+                Console.WriteLine($"Erro ao obter os dados da API (tentativa {attempt + 1}): {ex.Message}");
+                await Task.Delay(TimeSpan.FromSeconds(RetryDelaySeconds));
+            }
+
+        return null;
     }
 }
