@@ -1,3 +1,5 @@
+using ExternalServices.HttpClientWrapper;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Stocks.Application.Services;
@@ -9,9 +11,10 @@ internal static class HttpClientModule
     public static void AddHttpClientModule(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("Mockoon");
-        services.AddHttpClient<IStockPositionService, StockPositionService>(client =>
+        services.AddHttpClient<IHttpClientWrapper, HttpClientWrapper>(client =>
         {
             client.BaseAddress = new Uri(connectionString);
         });
+
     }
 }

@@ -1,6 +1,8 @@
 using System.Net;
 using System.Text;
 
+using ExternalServices.HttpClientWrapper;
+
 using Microsoft.Extensions.Caching.Distributed;
 
 using Moq;
@@ -20,7 +22,7 @@ namespace Stocks.Application.UnitTests;
 public class StockPositionServiceTests
 {
     private readonly Mock<IDistributedCache> cache = new();
-    private readonly  Mock<HttpClient> _httpClient = new();
+    private readonly  Mock<IHttpClientWrapper> _httpClient = new();
 
     public StockPositionServiceTests()
     {

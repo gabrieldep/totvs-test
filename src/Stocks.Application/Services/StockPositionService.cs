@@ -1,13 +1,17 @@
 using System.Text.Json;
+
+using ExternalServices.HttpClientWrapper;
+
 using Microsoft.Extensions.Caching.Distributed;
 using Stocks.Application.DTOs;
 
 namespace Stocks.Application.Services;
 
-public class StockPositionService(HttpClient httpClient, IDistributedCache cache) : IStockPositionService
+public class StockPositionService(IHttpClientWrapper httpClient, IDistributedCache cache) : IStockPositionService
 {
-    private readonly HttpClient _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+    private readonly IHttpClientWrapper _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
     private readonly IDistributedCache _cache = cache ?? throw new ArgumentNullException(nameof(cache));
+    
     private const string CacheKey = "StockPositions";
     private static readonly TimeSpan CacheExpiration = TimeSpan.FromMinutes(5);
     private const string ApiRoute = "api/stock-position/today";

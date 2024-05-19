@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Bonds.Application\Bonds.Application.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\ExternalServices\ExternalServices.csproj" />
     <ProjectReference Include="..\Investiments.Application\Investiments.Application.csproj" />
     <ProjectReference Include="..\Stocks.Application\Stocks.Application.csproj" />
     <ProjectReference Include="..\Wallets.Application\Wallets.Application.csproj" />
