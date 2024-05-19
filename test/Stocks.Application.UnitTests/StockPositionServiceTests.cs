@@ -1,12 +1,9 @@
 using System.Net;
 using System.Text;
-
 using ExternalServices.HttpClientWrapper;
-
+using Helper;
 using Microsoft.Extensions.Caching.Distributed;
-
 using Moq;
-
 using Newtonsoft.Json;
 
 using Stocks.Application.DTOs;

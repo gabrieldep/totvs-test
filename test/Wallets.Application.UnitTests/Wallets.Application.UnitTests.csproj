@@ -25,6 +25,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Wallets.Application\Wallets.Application.csproj" />
+        <ProjectReference Include="..\Helper\Helper.csproj" />
     </ItemGroup>
 
     <ItemGroup>

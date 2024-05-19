@@ -1,7 +1,8 @@
 using System.Text.Json;
 
-using ExternalServices.HttpClientWrapper;
+using Core.Domain.Exceptions;
 
+using ExternalServices.HttpClientWrapper;
 using Microsoft.Extensions.Caching.Distributed;
 using Stocks.Application.DTOs;
 
@@ -11,7 +12,7 @@ public class StockPositionService(IHttpClientWrapper httpClient, IDistributedCac
 {
     private readonly IHttpClientWrapper _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
     private readonly IDistributedCache _cache = cache ?? throw new ArgumentNullException(nameof(cache));
-    
+
     private const string CacheKey = "StockPositions";
     private static readonly TimeSpan CacheExpiration = TimeSpan.FromMinutes(5);
     private const string ApiRoute = "api/stock-position/today";
@@ -29,10 +30,8 @@ public class StockPositionService(IHttpClientWrapper httpClient, IDistributedCac
             try
             {
                 var apiResponse = await GetStockPositionsFromApiAsync();
-                await _cache.SetStringAsync(CacheKey, JsonSerializer.Serialize(apiResponse), new DistributedCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = CacheExpiration
-                });
+                await _cache.SetStringAsync(CacheKey, JsonSerializer.Serialize(apiResponse),
+                    new DistributedCacheEntryOptions { AbsoluteExpirationRelativeToNow = CacheExpiration });
                 return apiResponse;
             }
             catch (Exception ex)
@@ -40,11 +39,11 @@ public class StockPositionService(IHttpClientWrapper httpClient, IDistributedCac
                 Console.WriteLine($"Erro ao obter os dados da API (tentativa {attempt + 1}): {ex.Message}");
 
                 if (attempt == MaxRetries - 1)
-                    throw;
-
+                    throw new UserFriendlyException("Falha ao tentar recuperar informações externas", ex);
                 await Task.Delay(TimeSpan.FromSeconds(RetryDelaySeconds));
             }
         }
+
         return null;
     }
 

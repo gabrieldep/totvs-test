@@ -1,10 +1,10 @@
 using FluentAssertions;
 using FluentValidation;
 using FluentValidation.Results;
+using Helper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Stocks.Application.DTOs;
 using Stocks.Application.Services;
 using Stocks.Domain;
 using Wallets.Application;

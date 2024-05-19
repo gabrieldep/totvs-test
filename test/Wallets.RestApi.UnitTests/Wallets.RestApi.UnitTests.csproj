@@ -26,6 +26,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Wallets.RestApi\Wallets.RestApi.csproj" />
+        <ProjectReference Include="..\Helper\Helper.csproj" />
     </ItemGroup>
 
 </Project>

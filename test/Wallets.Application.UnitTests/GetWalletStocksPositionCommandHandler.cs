@@ -1,10 +1,8 @@
 using FluentAssertions;
+using Helper;
 using Moq;
-using Stocks.Application.DTOs;
 using Stocks.Application.Services;
 using Stocks.Domain;
-using Wallets.Application.DTOs;
-
 using Xunit;
 
 namespace Wallets.Application.UnitTests;

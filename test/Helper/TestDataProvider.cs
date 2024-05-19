@@ -1,9 +1,10 @@
 ﻿using Stocks.Application.DTOs;
 using Stocks.Domain;
-
 using Wallets.Application.DTOs;
 
-public class TestDataProvider
+namespace Helper; 
+
+public static class TestDataProvider
 {
     private const string Petrobras = "PETR4";
     private const string Itau = "ITUB4";
