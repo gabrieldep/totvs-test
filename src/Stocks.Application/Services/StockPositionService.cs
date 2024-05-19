@@ -1,3 +1,4 @@
+using System.Net;
 using System.Text.Json;
 
 using Core.Domain.Exceptions;
@@ -39,7 +40,7 @@ public class StockPositionService(IHttpClientWrapper httpClient, IDistributedCac
                 Console.WriteLine($"Erro ao obter os dados da API (tentativa {attempt + 1}): {ex.Message}");
 
                 if (attempt == MaxRetries - 1)
-                    throw new UserFriendlyException("Falha ao tentar recuperar informações externas", ex);
+                    throw new HttpResponseException(HttpStatusCode.InternalServerError, "Falha ao tentar recuperar informações externas", ex);
                 await Task.Delay(TimeSpan.FromSeconds(RetryDelaySeconds));
             }
         }

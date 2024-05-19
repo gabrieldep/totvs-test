@@ -53,7 +53,7 @@ public class StockPositionServiceTests
             .ThrowsAsync(new HttpRequestException("Simulated API failure"));
 
         // Act/Assert
-        await Assert.ThrowsAsync<UserFriendlyException>(async () => await _service.GetStockPositionsAsync());
+        await Assert.ThrowsAsync<HttpResponseException>(async () => await _service.GetStockPositionsAsync());
 
         // Assert
         _httpClient.Verify(h => h.GetAsync(It.IsAny<string>()), Times.Exactly(3));
