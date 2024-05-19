@@ -27,4 +27,10 @@
         <ProjectReference Include="..\..\src\Stocks.Application\Stocks.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Caching.Abstractions">
+        <HintPath>..\..\..\..\.nuget\packages\microsoft.extensions.caching.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
