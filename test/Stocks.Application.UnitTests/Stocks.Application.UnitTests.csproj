@@ -25,6 +25,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Stocks.Application\Stocks.Application.csproj" />
+        <ProjectReference Include="..\Helper\Helper.csproj" />
     </ItemGroup>
 
     <ItemGroup>

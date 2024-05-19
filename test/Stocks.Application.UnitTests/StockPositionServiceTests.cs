@@ -32,7 +32,7 @@ public class StockPositionServiceTests
     public async Task GetStockPositionsAsync_ShouldReturnsCachedDataWhenAvailable()
     {
         // Arrange
-        var cachedData = GetValidStockPositionResponse();
+        var cachedData = TestDataProvider.GetValidStockPositionResponse();
         cache.Setup(c => c.GetAsync("StockPositions", default)).ReturnsAsync(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(cachedData)));
 
         var service = new StockPositionService(_httpClient.Object, cache.Object);
@@ -51,7 +51,7 @@ public class StockPositionServiceTests
         // Arrange
         cache.Setup(c => c.GetAsync("StockPositions", CancellationToken.None))
             .ReturnsAsync(() => null);
-        var stocksPositionDto = GetValidStockPositionResponse();
+        var stocksPositionDto = TestDataProvider.GetValidStockPositionResponse();
 
         _httpClient.SetupSequence(c => c.GetAsync("http://localhost:3001/api/stock-position/today"))
             .ThrowsAsync(new HttpRequestException("Simulated API failure"))
@@ -67,12 +67,7 @@ public class StockPositionServiceTests
         var result = await service.GetStockPositionsAsync();
 
         // Assert
-        Assert.NotNull(result);
+        _httpClient.Verify(h => h.GetAsync(It.IsAny<string>()),
+            Times.Exactly(3));
     }
-
-    private static List<StockPositionDTO> GetValidStockPositionResponse() =>
-    [
-        new StockPositionDTO { Code = "PETR4", Value = "33.1" },
-        new StockPositionDTO { Code = "ITUB4", Value = "43.5" }
-    ];
 }

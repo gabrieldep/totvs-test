@@ -51,9 +51,9 @@ public class GetWalletStockPositionControllerTests
     {
         // Arrange
         var walletId = Guid.NewGuid();
-        var stocksFromRepository = GetValidWalletStocks();
-        var stocksPositionDto = GetValidStockPositionResponse();
-        var expectedStockPositions = GetValidStockPositionResponseDto();
+        var stocksFromRepository = TestDataProvider.GetValidWalletStocks();
+        var stocksPositionDto = TestDataProvider.GetValidStockPositionResponse();
+        var expectedStockPositions = TestDataProvider.GetValidStockPositionResponseDto();
 
         _validator.Setup(v =>
                 v.ValidateAsync(It.IsAny<WalletStocksPosition>(), It.IsAny<CancellationToken>()))
@@ -78,24 +78,4 @@ public class GetWalletStockPositionControllerTests
         stockPositionResponseDTOs[^1].Total.Should().Be(435.0m);
         _stockRepository.Verify(repo => repo.GetStocks(walletId, It.IsAny<CancellationToken>()), Times.Once);
     }
-
-
-    private static List<Stock> GetValidWalletStocks() =>
-    [
-        new Stock { Code = "PETR4", Value = 2.1m, Amount = 5 },
-        new Stock { Code = "PETR4", Value = 2.4m, Amount = 5 },
-        new Stock { Code = "ITUB4", Value = 12.1m, Amount = 10 }
-    ];
-    
-    private static List<StockPositionDTO> GetValidStockPositionResponse() =>
-    [
-        new StockPositionDTO { Code = "PETR4", Value = "33.1" },
-        new StockPositionDTO { Code = "ITUB4", Value = "43.5" }
-    ];
-
-    private static List<StockPositionResponseDTO> GetValidStockPositionResponseDto() =>
-    [
-        new StockPositionResponseDTO { Code = "PETR4", Amount = 10, ValuePerQuota = 33.1m },
-        new StockPositionResponseDTO { Code = "ITUB4", Amount = 10, ValuePerQuota = 43.5m }
-    ];
 }

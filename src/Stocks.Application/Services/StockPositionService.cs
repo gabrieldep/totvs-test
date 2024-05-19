@@ -18,11 +18,11 @@ public class StockPositionService(IHttpClientWrapper httpClient, IDistributedCac
     private const int MaxRetries = 3;
     private const int RetryDelaySeconds = 5;
 
-    public async Task<StockPositionDTO[]> GetStockPositionsAsync()
+    public async Task<StockPositionDTO[]?> GetStockPositionsAsync()
     {
         var cachedData = await _cache.GetStringAsync(CacheKey);
         if (!string.IsNullOrEmpty(cachedData))
-            return JsonSerializer.Deserialize<StockPositionDTO[]>(cachedData);
+            return JsonSerializer.Deserialize<StockPositionDTO[]?>(cachedData);
 
         for (int attempt = 0; attempt < MaxRetries; attempt++)
         {

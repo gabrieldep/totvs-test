@@ -4,5 +4,5 @@ namespace Stocks.Application.Services;
 
 public interface IStockPositionService
 {
-    Task<StockPositionDTO[]> GetStockPositionsAsync();
+    Task<StockPositionDTO[]?> GetStockPositionsAsync();
 }
