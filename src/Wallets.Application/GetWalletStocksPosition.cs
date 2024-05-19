@@ -24,12 +24,15 @@ public class GetWalletStocksPositionHandler : IRequestHandler<GetWalletStocksPos
     public async Task<IEnumerable<StockPositionResponseDTO>> Handle(GetWalletStocksPosition request, CancellationToken cancellationToken)
     {
         var stocksPositionQueryable = await _stocksRepository.GetStocks(request.WalletId, cancellationToken);
+        if (!stocksPositionQueryable.Any())
+            return null!;
+        
         var stocksPositionDto = GetStockAndAmount(stocksPositionQueryable).ToArray();
         var stocksValue = await _stockPositionService.GetStockPositionsAsync();
 
         foreach (var t in stocksPositionDto)
         {
-            var stockValue = stocksValue
+            var stockValue = stocksValue!
                 .FirstOrDefault(sv => sv.Code == t.Code);
             t.ValuePerQuota = ConvertToDecimal(stockValue?.Value);
         }

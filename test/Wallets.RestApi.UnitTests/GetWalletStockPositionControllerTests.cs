@@ -10,10 +10,9 @@ using Stocks.Domain;
 using Wallets.Application;
 using Wallets.Application.DTOs;
 using Wallets.Application.Validators;
-using Wallets.RestApi;
 using Xunit;
 
-namespace Stocks.RestApi.UnitTests;
+namespace Wallets.RestApi.UnitTests;
 
 public class GetWalletStockPositionControllerTests
 {
@@ -26,7 +25,7 @@ public class GetWalletStockPositionControllerTests
 
     public GetWalletStockPositionControllerTests()
     {
-        _subject = new(_sender.Object, _validator.Object);
+        _subject = new GetWalletStocksPositionController(_sender.Object, _validator.Object);
     }
 
     [Fact]

@@ -1,16 +1,10 @@
 ﻿using FluentAssertions;
-
 using MediatR;
-
 using Microsoft.AspNetCore.Mvc;
-
 using Moq;
-
-using Wallets.RestApi;
-
 using Xunit;
 
-namespace Stocks.RestApi.UnitTests;
+namespace Wallets.RestApi.UnitTests;
 
 public class CreateWalletControllerTests
 {

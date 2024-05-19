@@ -19,11 +19,13 @@ namespace Stocks.Application.UnitTests;
 
 public class StockPositionServiceTests
 {
+    private readonly StockPositionService _service;
     private readonly Mock<IDistributedCache> _cache = new();
     private readonly  Mock<IHttpClientWrapper> _httpClient = new();
 
     public StockPositionServiceTests()
     {
+        _service = new StockPositionService(_httpClient.Object, _cache.Object);
     }
 
     [Fact]
@@ -33,10 +35,8 @@ public class StockPositionServiceTests
         var cachedData = TestDataProvider.GetValidStockPositionResponse();
         _cache.Setup(c => c.GetAsync("StockPositions", default)).ReturnsAsync(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(cachedData)));
 
-        var service = new StockPositionService(_httpClient.Object, _cache.Object);
-
         // Act
-        var result = await service.GetStockPositionsAsync();
+        var result = await _service.GetStockPositionsAsync();
 
         // Assert
         Assert.NotNull(result);
@@ -52,10 +52,8 @@ public class StockPositionServiceTests
         _httpClient.SetupSequence(c => c.GetAsync(It.IsAny<string>()))
             .ThrowsAsync(new HttpRequestException("Simulated API failure"));
 
-        var service = new StockPositionService(_httpClient.Object, _cache.Object);
-
-        // Act
-        await Assert.ThrowsAsync<UserFriendlyException>(async () => await service.GetStockPositionsAsync());
+        // Act/Assert
+        await Assert.ThrowsAsync<UserFriendlyException>(async () => await _service.GetStockPositionsAsync());
 
         // Assert
         _httpClient.Verify(h => h.GetAsync(It.IsAny<string>()), Times.Exactly(3));
