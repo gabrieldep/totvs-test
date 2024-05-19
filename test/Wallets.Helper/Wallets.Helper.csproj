@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Helper</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Stocks.Application\Stocks.Application.csproj" />
+      <ProjectReference Include="..\..\src\Stocks.Domain\Stocks.Domain.csproj" />
+      <ProjectReference Include="..\..\src\Wallets.Application\Wallets.Application.csproj" />
+    </ItemGroup>
+
+</Project>

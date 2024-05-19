@@ -27,4 +27,10 @@
         <ProjectReference Include="..\..\src\Wallets.Application\Wallets.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="FluentAssertions">
+        <HintPath>..\..\..\..\.nuget\packages\fluentassertions\6.12.0\lib\net6.0\FluentAssertions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
