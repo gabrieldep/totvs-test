@@ -1,5 +1,6 @@
 using System.Net;
 using System.Text;
+using Core.Domain.Exceptions;
 using ExternalServices.HttpClientWrapper;
 using Helper;
 using Microsoft.Extensions.Caching.Distributed;
@@ -18,7 +19,7 @@ namespace Stocks.Application.UnitTests;
 
 public class StockPositionServiceTests
 {
-    private readonly Mock<IDistributedCache> cache = new();
+    private readonly Mock<IDistributedCache> _cache = new();
     private readonly  Mock<IHttpClientWrapper> _httpClient = new();
 
     public StockPositionServiceTests()
@@ -30,9 +31,9 @@ public class StockPositionServiceTests
     {
         // Arrange
         var cachedData = TestDataProvider.GetValidStockPositionResponse();
-        cache.Setup(c => c.GetAsync("StockPositions", default)).ReturnsAsync(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(cachedData)));
+        _cache.Setup(c => c.GetAsync("StockPositions", default)).ReturnsAsync(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(cachedData)));
 
-        var service = new StockPositionService(_httpClient.Object, cache.Object);
+        var service = new StockPositionService(_httpClient.Object, _cache.Object);
 
         // Act
         var result = await service.GetStockPositionsAsync();
@@ -46,25 +47,17 @@ public class StockPositionServiceTests
     public async Task GetStockPositionsAsync_ShouldRetriesOnApiFailure()
     {
         // Arrange
-        cache.Setup(c => c.GetAsync("StockPositions", CancellationToken.None))
+        _cache.Setup(c => c.GetAsync("StockPositions", CancellationToken.None))
             .ReturnsAsync(() => null);
-        var stocksPositionDto = TestDataProvider.GetValidStockPositionResponse();
+        _httpClient.SetupSequence(c => c.GetAsync(It.IsAny<string>()))
+            .ThrowsAsync(new HttpRequestException("Simulated API failure"));
 
-        _httpClient.SetupSequence(c => c.GetAsync("http://localhost:3001/api/stock-position/today"))
-            .ThrowsAsync(new HttpRequestException("Simulated API failure"))
-            .ReturnsAsync(new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(stocksPositionDto), Encoding.UTF8,
-                    "application/json")
-            });
-
-        var service = new StockPositionService(_httpClient.Object, cache.Object);
+        var service = new StockPositionService(_httpClient.Object, _cache.Object);
 
         // Act
-        var result = await service.GetStockPositionsAsync();
+        await Assert.ThrowsAsync<UserFriendlyException>(async () => await service.GetStockPositionsAsync());
 
         // Assert
-        _httpClient.Verify(h => h.GetAsync(It.IsAny<string>()),
-            Times.Exactly(3));
+        _httpClient.Verify(h => h.GetAsync(It.IsAny<string>()), Times.Exactly(3));
     }
 }
